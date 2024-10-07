@@ -1,42 +1,58 @@
-# YouTube Transcript Summarizer
+# Fabric: AI-Powered YouTube Video Analyzer
 
-This Python script extracts transcripts from YouTube videos and generates concise summaries using OpenAI's GPT model. It's designed to work with multiple languages and save summaries as markdown files.
+Fabric is an innovative tool that leverages AI to extract, summarize, and interact with YouTube video content. It offers a seamless way to digest information from videos and engage with their content through natural language conversations.
 
 ## Features
 
-- Extract transcripts from YouTube videos
-- Support for multiple languages
-- Generate summaries using OpenAI's GPT model
-- Save summaries as markdown files
-- Retrieve video titles and channel names
+- **Transcript Extraction**: Pulls transcripts from YouTube videos in multiple languages.
+- **AI-Powered Summarization**: Generates concise summaries of video content using OpenAI's GPT model.
+- **Interactive Chat**: Allows users to ask questions about the video content and receive AI-generated responses.
+- **Multi-Language Support**: Works with various language transcripts.
+- **Markdown Export**: Saves summaries and Q&A sessions as markdown files for easy reference.
 
-## Requirements
+## Getting Started
 
-- Python 3.6+
-- Required Python packages (install using `pip install -r requirements.txt`):
-  - requests
-  - beautifulsoup4
-  - openai
-  - python-dotenv
-
-## Setup
-
-1. Clone this repository:
+1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/youtube-transcript-summarizer.git
-   cd youtube-transcript-summarizer
+   git clone https://github.com/yourusername/fabric.git
+   cd fabric
    ```
 
-2. Install the required packages:
+2. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-3. Create a `.env` file in the project root and add your OpenAI API key:
+3. Set up your OpenAI API key in a `.env` file:
    ```
    OPENAI_API_KEY=your_api_key_here
    ```
 
+4. Run the main script:
+   ```
+   python main.py
+   ```
+
 ## Usage
 
-Run the script:
+1. Enter the desired language code (e.g., 'en' for English).
+2. Provide a YouTube URL.
+3. Choose between 'summary' mode for a video summary or 'chat' mode to interact with the video content.
+
+## Output
+
+- Summaries are saved in the `summaries` folder.
+- Chat Q&A sessions are stored in the `questions` folder.
+- Each file is named after the video title and includes metadata.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This tool uses the OpenAI API, which may incur costs. Please review OpenAI's pricing before extensive use.
