@@ -3,9 +3,6 @@ from yt_crawler import YouTubeTranscriptExtractor
 from yt_summarizer import summarize_transcript, save_summary_to_markdown
 from yt_chat import chat_with_video
 
-# Load environment variables from .env file
-load_dotenv()
-
 def main():
     while True:
         language = input("Enter the desired language code (e.g., 'en' for English, or 'quit' to exit): ").strip().lower()
@@ -44,8 +41,6 @@ def main():
             print("\n" + "-"*50 + "\n")
         except Exception as e:
             print(f"Error: {str(e)}")
-
-    print("Thank you for using the YouTube transcript grabber, summarizer, and question answerer!")
 
 if __name__ == "__main__":
     main()
