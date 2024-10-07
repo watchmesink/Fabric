@@ -1,3 +1,4 @@
+
 # Fabric: AI-Powered YouTube Video Analyzer
 
 Fabric is an innovative tool that leverages AI to extract, summarize, and interact with YouTube video content. It offers a seamless way to digest information from videos and engage with their content through natural language conversations.
@@ -10,12 +11,15 @@ Fabric is an innovative tool that leverages AI to extract, summarize, and intera
 - **Multi-Language Support**: Works with various language transcripts.
 - **Markdown Export**: Saves summaries and Q&A sessions as markdown files for easy reference.
 
+
 ## Getting Started
 
 1. Clone the repository:
    ```
+
    git clone https://github.com/yourusername/fabric.git
    cd fabric
+
    ```
 
 2. Install dependencies:
