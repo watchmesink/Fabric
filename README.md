@@ -1,13 +1,14 @@
-# YouTube Transcript Summarizer
+# YouTube Transcript Summarizer and Chat
 
-This Python script extracts transcripts from YouTube videos and generates concise summaries using OpenAI's GPT model. It's designed to work with multiple languages and save summaries as markdown files.
+This Python application extracts transcripts from YouTube videos, generates concise summaries, and allows users to chat with the video content using OpenAI's GPT model. It supports multiple languages and saves summaries and chat sessions as markdown files.
 
 ## Features
 
 - Extract transcripts from YouTube videos
 - Support for multiple languages
 - Generate summaries using OpenAI's GPT model
-- Save summaries as markdown files
+- Chat with video content using AI
+- Save summaries and Q&A sessions as markdown files
 - Retrieve video titles and channel names
 
 ## Requirements
@@ -23,8 +24,8 @@ This Python script extracts transcripts from YouTube videos and generates concis
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/youtube-transcript-summarizer.git
-   cd youtube-transcript-summarizer
+   git clone https://github.com/yourusername/youtube-transcript-summarizer-chat.git
+   cd youtube-transcript-summarizer-chat
    ```
 
 2. Install the required packages:
