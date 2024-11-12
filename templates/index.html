@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Summarizer</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .error { color: red; }
+        .spinner {
+            display: none;
+            margin: 20px auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">YouTube Video Summarizer</h1>
+        <form method="post">
+            <div class="input-field">
+                <select name="language" id="language" required>
+                    <option value="" disabled selected>Choose your language</option>
+                    <option value="en">English</option>
+                    <option value="ru">Russian</option>
+                    <option value="de">German</option>
+                </select>
+                <label for="language">Select Language</label>
+            </div>
+            <div class="input-field">
+                <input type="url" name="youtube_url" id="youtube_url" class="validate" required>
+                <label for="youtube_url">YouTube URL</label>
+            </div>
+            <div class="input-field">
+                <textarea id="instructions" name="instructions" class="materialize-textarea" required>
+You need to provide 10 key takeaways from the video in a format of bullet points. Focus on technical details and use-cases. The takeaways need to be exhaustive and in a size of a paragraph
+                </textarea>
+                <label for="instructions">Summary Instructions</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Submit</button>
+        </form>
+
+        <div class="spinner" id="spinner"></div>
+
+        {% if summary %}
+            <h2>Summary:</h2>
+            <div class="card-panel">
+                <p>{{ summary | safe }}</p>
+            </div>
+            <p>Summary saved to: <a href="{{ filepath }}" target="_blank">{{ filepath }}</a></p>
+            <p>Tokens used: {{ tokens_used }}</p>
+            <p>Cost: ${{ cost }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+
+            // Show spinner on form submit
+            document.querySelector('form').addEventListener('submit', function() {
+                document.getElementById('spinner').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html> 

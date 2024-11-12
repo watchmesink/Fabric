@@ -7,22 +7,23 @@ dotenv.load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def summarize_transcript(transcript: str) -> str:
+def summarize_transcript(transcript: str, instructions: str) -> tuple:
     try:
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant responding in the language of the information provided."},
-                {"role": "user", "content": f"You need to provide 10 key takeaways from the video in a format of bullet points. Focus on technical details and use-cases. The takeaways need to be exhaustive and in a size of a paragraph. Here is the video:\n\n{transcript}"}
+                {"role": "user", "content": f"{instructions}\n\n{transcript}"}
             ],
             max_tokens=1000,
             n=1,
             temperature=0.7
         )
         summary = response.choices[0].message.content.strip()
-        return summary
+        tokens_used = response.usage.total_tokens
+        return summary, tokens_used
     except Exception as e:
-        return f"Error in summarizing: {str(e)}"
+        return f"Error in summarizing: {str(e)}", 0
 
 def save_summary_to_markdown(title: str, url: str, channel_name: str, summary: str):
     summaries_folder = os.path.join(os.getcwd(), 'summaries')
